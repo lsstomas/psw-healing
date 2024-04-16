@@ -3,21 +3,23 @@
 
 {% block title %}Cadastro{% endblock title %} 
 
-{% block head %}<link rel="stylesheet" href="{% static 'users/css/base.css' %}" />{% endblock head %} 
+{% block head %}
+    <link rel="stylesheet" href="{% static 'users/css/users.css' %}" />
+{% endblock head %} 
     
 {% block body %}
     <div class="container-fluid">
         <div class="row">
             <div class="col-md d-flex justify-content-center">
-                <div class="cont-cadastro">
-                    <section class="cont-logo mt-5">
+                <div class="container-cadastro">
+                    <section class="container-logo mt-5">
                         <img class="logo" src="{% static 'global/img/logo.png' %}" />
                         <label class="text-logo">HEALING</label>
                     </section>
                     <hr />
 
                     <form action="" method="POST">
-                        <h2 class="fonte-destaque1">Cadastre-se</h2>
+                        <h2 class="form-title my-4">Cadastre-se</h2>
 
                         <div class="mb-3">
                             <label for="username" class="form-label">Usuário</label>
@@ -42,7 +44,7 @@
 
                         <input type="submit" value="Cadastrar" class="btn btn-success btn-dark-color" />
 
-                        <a href="#" class="btn btn-dark color-outline">Já possuo uma conta</a>
+                        <a href="#" class="btn btn-dark-color-outline">Já possuo uma conta</a>
                     </form>
                 </div>
             </div>
