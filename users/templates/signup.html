@@ -18,9 +18,17 @@
                     </section>
                     <hr />
 
-                    <form action="" method="POST">
+                    <form action="{% url 'signup' %}" method="POST"> {% csrf_token %}
                         <h2 class="form-title my-4">Cadastre-se</h2>
 
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert {{message.tags}}" role="alert">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+                        
                         <div class="mb-3">
                             <label for="username" class="form-label">Usuário</label>
                             <input type="text" class="form-control" name="username" id="username" />
@@ -31,7 +39,7 @@
                             <input type="email" class="form-control" name="email" id="email" />
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="row mb-4">
                             <div class="col-md">
                                 <label for="password1" class="form-label">Senha</label>
                                 <input type="password" name="password1" id="password1" class="form-control" />
