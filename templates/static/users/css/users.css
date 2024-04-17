@@ -25,6 +25,12 @@
     color: white;
 }
 
+.btn-dark-color:hover{
+    background-color: var(--darker-color);
+    transition: all .3s ease-out;
+    color: white;
+}
+
 .btn-dark-color-outline{
     border: 1px solid var(--dark-color);
     color: var(--dark-color)
@@ -32,6 +38,6 @@
 
 .btn-dark-color-outline:hover{
     background-color: var(--dark-color);
+    transition: all .3s ease-out;
     color: white;
-    border: 1px solid var(--dark-color);
 }

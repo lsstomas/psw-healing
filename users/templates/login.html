@@ -1,12 +1,12 @@
 {% extends "base.html" %} 
 {% load static %} 
 
-{% block title %}Cadastro{% endblock title %} 
+{% block title %}Login{% endblock title %} 
 
 {% block head %}
     <link rel="stylesheet" href="{% static 'users/css/users.css' %}" />
 {% endblock head %} 
-    
+
 {% block body %}
     <div class="container-fluid">
         <div class="row">
@@ -18,8 +18,8 @@
                     </section>
                     <hr />
 
-                    <form action="{% url 'signup' %}" method="POST"> {% csrf_token %}
-                        <h2 class="form-title my-4">Cadastro</h2>
+                    <form action="{% url 'login' %}" method="POST"> {% csrf_token %}
+                        <h2 class="form-title my-4">Login</h2>
 
                         {% if messages %}
                             {% for message in messages %}
@@ -34,25 +34,14 @@
                             <input type="text" class="form-control" name="username" id="username" />
                         </div>
 
-                        <div class="mb-3">
-                            <label for="email" class="form-label">E-mail</label>
-                            <input type="email" class="form-control" name="email" id="email" />
+                        <div class="col-md mb-4">
+                            <label for="password" class="form-label">Senha</label>
+                            <input type="password" name="password" id="password" class="form-control" />
                         </div>
 
-                        <div class="row mb-4">
-                            <div class="col-md">
-                                <label for="password1" class="form-label">Senha</label>
-                                <input type="password" name="password1" id="password1" class="form-control" />
-                            </div>
-                            <div class="col-md">
-                                <label for="password2" class="form-label">Confirmar senha</label>
-                                <input type="password" name="password2" id="password2" class="form-control" />
-                            </div>
-                        </div>
+                        <input type="submit" value="Entrar" class="btn btn-dark-color px-4" />
 
-                        <input type="submit" value="Cadastrar" class="btn btn-dark-color px-4" />
-
-                        <a href="{% url 'login' %}" class="btn btn-dark-color-outline px-3">Já possuo uma conta</a>
+                        <a href="{% url 'signup' %}" class="btn btn-dark-color-outline px-4">Não possuo uma conta</a>
                     </form>
                 </div>
             </div>

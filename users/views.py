@@ -1,3 +1,4 @@
+from django.contrib import auth
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.messages import constants
@@ -65,3 +66,40 @@ def signup(request):
                 )
 
                 return redirect("signup")
+
+
+def login(request):
+    if request.method == "GET":
+        return render(request, "login.html")
+
+    elif request.method == "POST":
+        form_data = {
+            "username": request.POST.get("username"),
+            "password": request.POST.get("password")
+        }
+
+        user = auth.authenticate(
+            request,
+            username=form_data["username"],
+            password=form_data["password"]
+        )
+
+        if user:
+            auth.login(request, user)
+
+            messages.add_message(
+                request,
+                constants.SUCCESS,
+                "Login realizado com sucesso!"
+            )
+
+            return redirect("home")
+
+        else:
+            messages.add_message(
+                request,
+                constants.ERROR,
+                "Credenciais inválidas. Por favor, tente novamente!"
+            )
+
+            return redirect("login")
